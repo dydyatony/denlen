@@ -1,0 +1,39 @@
+{% load static%}
+
+<div class="col-lg-4 col-md-12 col-sm-12">
+    <div id="blog_right" class="blog">
+        <div class="container">
+            <h1 class="text-center default_brown">Read More</h1>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-6 col-sm-12">
+
+
+                    {% for post in posts %}
+
+                    <div class="card">
+
+                        <div class="card-img">
+                            <img align="center" src="{{post.first_photo.url}}" class="img-fluid">
+                        </div>
+
+                        <div class="card-body default_grey_bg">
+                            <h3 class="card-title default_brown">{{post.title}}</h3>
+
+                        </div>
+                        <div class="card-footer default_grey_bg">
+                            <a href="{% url 'blog'  %}" class="link_text  default_yellow">Read more
+                                >></a>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} {{block.super}} :: {{title}}  {% endblock %}
+
+{% block content %}
+
+{% load show_top_tips %}
+
+
+<!--верхний странный банер-->
+<section id="section_healthyTips">
+    <div class="wrapper">
+        <!-- Posts section -->
+        <div id="main_wide_banner"></div>
+
+
+        <div id="main_overlay_banner" class="default_yellow_bg">
+            <div class="inner_wrapper">
+                <h2>
+                    <span class="default_brown">Honey is one of</span><br>natures bigs gifts to us
+                </h2>
+                <p>
+                    Both sweet and healing,
+                    this sticky substance has uses in both the kitchen and the medicine cabinet? maked it a valued
+                    commodity for centuries
+                </p>
+                <a href="/" class="link_button default_brown_bg">READ HEALTHY TIPS</a>
+            </div>
+        </div>
+
+
+        <!--        реальный блог-->
+
+        <div id="healthyTips_bot">
+            <div class="row">
+                <div class=" col-lg-8 col-md-12 col-sm-12">
+                    <div id="blog_left" class="blog">
+                        <div class="container">
+
+                            <div class="row">
+
+
+                                <!--                         карта итерация-->
+
+                                {% for post in posts %}
+                                <div class="card">
+                                    <div class="card-img">
+                                        <img align="center" src="{{post.first_photo.url}}" class="img-fluid">
+                                    </div>
+                                    <div class="card-body">
+                                        <h1 class="card-title default_brown ">{{post.title}}</h1>
+                                        <p class="card-text">
+                                            {{post.content|truncatechars_html:555|safe}}
+                                        </p>
+                                    </div>
+
+                                    <div class="card-footer">
+                                        <a href="{{post.get_absolute_url}}" class="link_text  default_yellow">Read more
+                                            >></a>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!--                    пагинация. но думаю это переделать придется-->
+
+                    {% if page_obj.has_other_pages %}
+
+                    <div class="row">
+                        <nav class="paging">
+                            <ul class="pagination pg-blue justify-content-center">
+
+
+                                {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                <li class="page-item "><a class="page-link" href="?page={{page_obj.previous_page_number}}"><</a></li>
+                                <span aria-hidden="true"></span>
+                                </a>
+                                </li>
+
+                                {% endif %}
+
+
+                                {% for p in page_obj.paginator.page_range %}
+                                {% if page_obj.number == p %}
+                                <li class="page-item"><a class="page-link" href="?page={{p}}">{{p}}</a></li>
+
+
+                                {% else %}
+                                <li class="page-item"><a class="page-link" href="?page={{p}}">{{p}}</a></li>
+
+                                {% endif %}
+                                {% endfor %}
+
+                                {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{page_obj.next_page_number}}" aria-label="Next">
+                                        <span aria-hidden="true">></span>
+                                    </a>
+                                </li>
+                                {% endif %}
+
+
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    {% endif %}
+
+
+                </div>
+
+
+                {% show_top_tips %}
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</div>
+
+
+{% endblock %}
+
+
+<li class="page-item "><a class="page-link"><</a></li>
+<li class="page-item"><a class="page-link">1</a></li>
+<li class="page-item"><a class="page-link">2</a></li>
+<li class="page-item"><a class="page-link">3</a></li>
+<li class="page-item"><a class="page-link">4</a></li>
+<li class="page-item"><a class="page-link">5</a></li>
+<li class="page-item"><a class="page-link">6</a></li>
+<li class="page-item">
+    <a class="page-link">></a>

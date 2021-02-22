@@ -1,0 +1,126 @@
+{% load static %}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} Healthy to bee{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap-reboot.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mainpage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blogpage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/healthyTips.css' %}">
+    <link rel="stylesheet" href="{% static 'css/individuaiproductpage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/productspage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mainpage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mainpage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link href="{% static 'fontawesome/css/all.min.css' %}" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'slick/slick.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'slick/slick.css' %}">
+</head>
+<body>
+
+
+<div id="global_holder">
+
+    <header>
+
+        <div id="top_yellow_line" class="flex">
+            <div class="wrapper flex">
+                <div class="flex-separator"></div>
+                <div id="search_box">
+                    <input id="search_input" placeholder="Search..." type="text">
+                    <div id="search_button" class="fa-search fa"></div>
+                </div>
+                <div id="cart_top">
+                    <a href="#" class="shopping_cart fa fa-shopping-cart default_brown"><sup
+                            class="cart_amount default_brown">5</sup></a>
+                </div>
+            </div>
+        </div>
+        <div id="top_white_line" class="flex">
+            <div class="wrapper flex">
+                <a href="{% url 'home'  %}"><img src="{% static 'img/logo.svg' %}"></a>
+                <div class="flex-separator"></div>
+                <div id="cart_top_mobile">
+                    <a href="#" class="shopping_cart fa fa-shopping-cart default_brown"><sup
+                            class="cart_amount default_brown">5</sup></a>
+                </div>
+
+                <i id="menu_toggler" class="fa fa-bars default_yellow" aria-hidden="true"></i>
+
+                <!--<div id="menu_block">-->
+                <div id="menu_holder">
+                    <div id="mobile_menu_close">X</div>
+                    <div id="mobile_menu_logo">
+                        <img src="{% static 'img/menu_logo.svg' %}">
+                    </div>
+                    <ul id="main_menu" class="flex">
+                        <li><a href="/">About</a></li>
+                        <li>
+                            <a href="{% url 'shop'  %}">Shop Products</a>
+                            <div class="submenu">
+                                <a href="{% url 'product'  %}">Submenu 1</a>
+                                <a href="/">Submenu 2</a>
+                                <a href="/">Submenu 3</a>
+                                <a href="/">Submenu 4</a>
+                            </div>
+                        </li>
+                        <li><a href="{% url 'tips'  %}">Healthy Tips</a></li>
+                        <li><a href="{% url 'contact'  %}">Contact</a></li>
+                    </ul>
+                    <div id="menu_adress" class="default_brown">
+                        Address City, Zip<br>
+                        Monday-Friday<br>
+                        8 AM-5PM
+                    </div>
+                    <div id="menu_social">
+                        <a href="#" class="fab fa-facebook-f"></a> <a href="#" class="fab fa-instagram"></a>
+                    </div>
+                </div>
+                <!--</div>-->
+            </div>
+        </div>
+
+
+    </header>
+
+
+    {% block content %}
+    {% endblock %}
+
+
+    <footer>
+        <div><a href="#">Shop Product</a></div>
+        <div><a href="#">Healthy Tips</a></div>
+        <div><a href="#">Contact Us</a></div>
+        <div><a href="#">Return Policy</a></div>
+        <div id="footer_social"><a href="#" class="fab fa-facebook-f"></a><a href="#" class="fab fa-instagram"></a>
+        </div>
+        <div><a href="#">(c) Healthy To Bee. All rights Reserved.</a></div>
+    </footer>
+
+
+</body>
+</html>
+
+<script>
+
+    $('#menu_toggler').click(function () {
+        $('body').toggleClass('menu_opened');
+    });
+
+    $('#mobile_menu_close').click(function () {
+        $('body').toggleClass('menu_opened');
+    });
+
+</script>

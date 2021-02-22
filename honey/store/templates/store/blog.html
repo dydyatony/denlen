@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% load show_top_tips%}
+
+
+<section id="section_blog">
+    <div class="wrapper">
+
+        <div class="card-img">
+            <img align="center" src="{{post.first_photo.url}}" class="img-fluid blog_img">
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12">
+                <div id="blog_left" class="blog">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="card">
+
+                                <div class="card-body">
+                                    <h1 class="card-title default_brown ">{{post.title}}</h1>
+                                    <h4>{{post.created_at|date}}</h4>
+                                    <p class="card-text">
+
+                                        {{post.content|safe}}
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    {{post.tags}}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            {% show_top_tips %}
+
+        </div>
+    </div>
+</section>
+
+</div>
+
+
+{% endblock %}

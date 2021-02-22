@@ -1,0 +1,27 @@
+
+/* CONTACT PAGE  */
+#yellow_page_name {
+    max-width: 100rem;
+}
+
+.paging {
+    display: block;
+    margin: auto;
+    padding-bottom: 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #BCBEC0;
+
+
+}
+
+
+.page-link {
+    border: none;
+}
+
+    .page-link:hover, .page-item:hover {
+        color: #FFCB29;
+        background-color: #FFFFFF;
+        cursor: pointer;
+    }

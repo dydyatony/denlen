@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+<section id="section_mainpage">
+    <div class="wrapper">
+
+<!--слайдер-->
+        <div id="main_slider" class="bg_filler">
+            <div class="main_slider_slide" style="background-image: url(/static/img/slider_main/slide1_bg.png);">
+                <div class="slide_label">
+                    <div>
+                                <span class="default_brown">
+                                    Shop 100% pure <br> Raw Honey
+                                </span>
+                    </div>
+                    <a href="/" class="link_button default_yellow_bg">SHOP HONEY</a>
+                </div>
+            </div>
+
+<!--            сл картинка-->
+            <div class="main_slider_slide" style="background-image: url(/static/img/slider_main/slide1_bg.png);">
+                <div class="slide_label">
+                    <div>
+                                <span class="default_brown">
+                                    Shop 99% pure <br> Raw Honey
+                                </span>
+                    </div>
+                    <a href="/" class="link_button default_yellow_bg">Free Stock</a>
+                </div>
+            </div>
+
+            <div class="main_slider_slide" style="background-image: url(/static/img/slider_main/slide1_bg.png);"></div>
+        </div>
+
+
+
+        <script>
+            $('#main_slider').slick();
+        </script>
+
+
+<!--        what is raw honey блог-->
+        <div id="what_is_raw_honey">
+            <div id="raw_honey_img_holder"></div>
+            <div>
+                <div>
+                    <h2>
+                        <span class="default_brown">What is</span>
+                        <span class="default_yellow">raw honey?</span>
+                    </h2>
+                </div>
+                <p>
+                    Raw honey is 100 % pure, unfiltered and unpasteurized sweetener created by bees from the nectar of
+                    flowers.
+                    Most honey eaten today is processed honey that’s been heated and filtered since it was collected
+                    from the hive.
+                    Unlike processed honey, raw honey does not get robbed of its vitamins and minerals.
+                    It also provides many health benefits!
+                </p>
+                <a href="#" class="default_yellow">About Us >></a>
+            </div>
+        </div>
+
+
+
+<!--продукты-->
+        <h2 class="section_title default_brown">Products</h2>
+        <div class="row">
+            <div class="prodcol col-lg-3 col-md-6">
+                <div class="main_product_card">
+                    <div class="main_product_card_image_holder">
+                        <div class="main_product_card_bg default_yellow_bg"></div>
+                        <div class="main_product_card_img"
+                             style="background-image:url(/static/img/whait_is_raw_honey.png)"></div>
+                    </div>
+                    <a href="/" class="link_button main_product_card_button default_yellow_bg">SHOP HONEY</a>
+                </div>
+            </div>
+
+            <div class="prodcol col-lg-3 col-md-6">
+                <div class="main_product_card">
+                    <div class="main_product_card_image_holder">
+                        <div class="main_product_card_bg default_yellow_bg"></div>
+                        <div class="main_product_card_img"
+                             style="background-image:url(/static/img/whait_is_raw_honey.png)"></div>
+                    </div>
+                    <a href="/" class="link_button main_product_card_button default_yellow_bg">SHOP HONEY</a>
+                </div>
+            </div>
+
+            <div class="prodcol col-lg-3 col-md-6">
+                <div class="main_product_card">
+                    <div class="main_product_card_image_holder">
+                        <div class="main_product_card_bg default_yellow_bg"></div>
+                        <div class="main_product_card_img"
+                             style="background-image:url(/static/img/whait_is_raw_honey.png)"></div>
+                    </div>
+                    <a href="/" class="link_button main_product_card_button default_yellow_bg">SHOP HONEY</a>
+                </div>
+            </div>
+
+            <div class="prodcol col-lg-3 col-md-6">
+                <div class="main_product_card">
+                    <div class="main_product_card_image_holder">
+                        <div class="main_product_card_bg default_yellow_bg"></div>
+                        <div class="main_product_card_img"
+                             style="background-image:url(/static/img/whait_is_raw_honey.png)"></div>
+                    </div>
+                    <a href="/" class="link_button main_product_card_button default_yellow_bg">SHOP HONEY</a>
+                </div>
+            </div>
+        </div>
+
+
+<!--        мэин вайд баннер. хз что с ним-->
+        <div id="main_wide_banner"></div>
+        <div id="main_overlay_banner" class="default_yellow_bg">
+            <div class="inner_wrapper">
+                <h2>
+                    <span class="default_brown">Honey is one of</span><br>natures bigs gifts to us
+                </h2>
+                <p>
+                    Both sweet and healing,
+                    this sticky substance has uses in both the kitchen and the medicine cabinet? maked it a valued
+                    commodity for centuries
+                </p>
+                <a href="/" class="link_button default_brown_bg">READ HEALTHY TIPS</a>
+            </div>
+        </div>
+
+    </div>
+
+<!--    кнопки-->
+    <div id="mainpage_bottom">
+        <div class="wrapper">
+            <div class="bottom_photo_holder">
+                <div>
+                    <img src="{% static 'img/photo_bottom.png' %}">
+                </div>
+                <div>
+                    <img src="{% static 'img/photo_bottom.png' %}">
+                </div>
+                <div>
+                    <img src="{% static 'img/photo_bottom.png' %}">
+                </div>
+                <div>
+                    <img src="{% static 'img/photo_bottom.png' %}">
+                </div>
+                <div class="no_tablet">
+                    <img src="{% static 'img/photo_bottom.png' %}">
+                </div>
+            </div>
+            <div class="bottom_img_holder">
+                <div>
+                    <img src="{% static 'img/bottom_logo3.svg' %}">
+                </div>
+                <div>
+                    <img src="{% static 'img/bottom_logo1.png' %}">
+                </div>
+                <div>
+                    <img src="{% static 'img/bottom_logo2.svg' %}">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</div>
+
+
+{% endblock %}
