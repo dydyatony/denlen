@@ -41,3 +41,45 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post', kwargs={"slug": self.slug})
+
+
+class Category(models.Model):
+    title = models.CharField(max_length=50)
+    slug = models.CharField(max_length=50, verbose_name='Category', unique=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['title']
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
+
+    def get_absolute_url(self):
+        return reverse('category', kwargs={"slug": self.slug})
+
+
+
+class Product(models.Model):
+    title = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, verbose_name='Title', unique=True)
+    short_description = models.CharField(max_length=255)
+    description = models.TextField()
+    photo = models.ImageField(upload_to= 'photo/%Y/%m/%d')
+    high_price = models.FloatField()
+    real_price = models.FloatField()
+    views = models.IntegerField(default=0)
+    bought = models.IntegerField(default=0)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='categories')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['title']
+        verbose_name = 'Product'
+        verbose_name_plural = 'Products'
+
+    def get_absolute_url(self):
+        return reverse('product', kwargs={"slug": self.slug})
+

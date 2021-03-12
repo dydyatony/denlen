@@ -1,5 +1,9 @@
 {% load static %}
 
+{% load show_categories %}
+
+
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,12 +72,18 @@
                         <li><a href="/">About</a></li>
                         <li>
                             <a href="{% url 'shop'  %}">Shop Products</a>
-                            <div class="submenu">
-                                <a href="{% url 'product'  %}">Submenu 1</a>
-                                <a href="/">Submenu 2</a>
-                                <a href="/">Submenu 3</a>
-                                <a href="/">Submenu 4</a>
-                            </div>
+
+
+                                {% show_categories %}
+<!--                            <div class="submenu">-->
+<!--                                <a href="/">Submenu 1</a>-->
+<!--                                <a href="/">Submenu 2</a>-->
+<!--                                <a href="/">Submenu 3</a>-->
+<!--                                <a href="/">Submenu 4</a>-->
+<!--                            </div>-->
+
+
+
                         </li>
                         <li><a href="{% url 'tips'  %}">Healthy Tips</a></li>
                         <li><a href="{% url 'contact'  %}">Contact</a></li>

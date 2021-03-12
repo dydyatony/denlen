@@ -4,8 +4,10 @@ from django.http import HttpResponse
 from django.views.generic import ListView, DetailView
 from .models import *
 
-
 from django.db.models import F
+
+from django.urls import reverse
+
 
 # Create your views here.
 
@@ -57,3 +59,43 @@ class GetPost(DetailView):
         self.object.refresh_from_db()
         return context
 
+
+class Shop(ListView):
+    model = Product
+    template_name = 'store/shop.html'
+    context_object_name = 'products'
+    paginate_by = 6
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Honey Store'
+        return context
+
+
+class ProductByCategory(ListView):
+    model = Product
+    template_name = 'store/shop.html'
+    context_object_name = 'products'
+    allow_empty = False
+    paginate_by = 6
+
+    def get_queryset(self):
+        return Product.objects.filter(category__slug=self.kwargs['slug'])
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = Category.objects.get(slug=self.kwargs['slug'])
+        return context
+
+
+class ProductPage(DetailView):
+    model = Product
+    template_name = 'store/product.html'
+    context_object_name = 'product'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        self.object.views = F('views') + 1
+        self.object.save()
+        self.object.refresh_from_db()
+        return context

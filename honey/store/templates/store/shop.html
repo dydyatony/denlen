@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 
+{% load prices %}
 {% load static %}
+
+
 
 {% block content %}
 
+<title>{% block title %} {{title}} :: {{block.super}}{% endblock %}</title>
 
 <section id="section_product">
     <div class="wrapper">
@@ -15,154 +19,47 @@
 
 
                     <!--                    карточка-->
+
+                    {% for product in products %}
+
                     <div class="col-md-4 col-lg-4 col-sm-12">
                         <div class="card">
                             <div class="card-img">
-                                <img align="center" src="{% static 'img/1.jpg' %}" class="img-fluid">
+
+                                {% if product.photo %}
+                                <img align="center" src="{{ product.photo.url }}" class="img-fluid">
+                                {% else %}
+
+                                {% endif %}
+
+
                             </div>
 
                             <div class="card-body">
-                                <h4 class="card-title default_brown ">Raw orange and eucalyptus honey 1 lb (16oz)</h4>
+                                <h4 class="card-title default_brown ">{{product.title}}</h4>
                                 <p class="card-text">
-                                    This naturally sweet treat from the bees can be enjoyed for months or years to come
-                                    (although we’re pretty sure it won’t last that long once you’ve tasted this
-                                    delicious varietal). Made from bees drawing nectar from the blossoms of native
-                                    orange and eucalyptus plants.
+                                    {{product.short_description}}
                                 </p>
 
-                                <h5 class="card-title default_yellow">$39.99</h5>
+<!--                                загрузка цен-->
+                                {% show_prices  product.real_price product.high_price %}
+
+
                             </div>
                             <div class="card-footer">
-                                <a href="/" class="link_button main_product_card_button default_yellow_bg">view
+                                <a href="{{ product.get_absolute_url }}" class="link_button main_product_card_button default_yellow_bg">view
                                     product</a>
                             </div>
                         </div>
                     </div>
 
 
-                    <div class="col-md-4 col-lg-4 col-sm-12">
-                        <div class="card">
-                            <div class="card-img">
-                                <img align="center" src="{% static 'img/4.jpg' %}" class="img-fluid">
-                            </div>
-
-                            <div class="card-body">
-                                <h4 class="card-title default_brown ">Raw orange and eucalyptus honey with almonds 6
-                                    oz</h4>
-                                <p class="card-text">
-                                    Almonds Soaked in our Honey. Great on Toast, waffles, oatmeal, or ice Cream! Our
-                                    honey is harvest by hand screened to remove any unwanted solids and bottled without
-                                    the use of machines.
-                                </p>
-
-                                <h5 class="card-title default_yellow">$39.99</h5>
-                            </div>
-                            <div class="card-footer">
-                                <a href="/product/" class="link_button main_product_card_button default_yellow_bg">view
-                                    product</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-lg-4 col-sm-12">
-                        <div class="card">
-                            <div class="card-img">
-                                <img align="center" src="{% static 'img/5.jpg' %}" class="img-fluid">
-                            </div>
-
-                            <div class="card-body">
-                                <h4 class="card-title default_brown ">Raw orange and eucalyptus honey 3oz</h4>
-                                <p class="card-text">
-                                    This naturally sweet treat from the bees can be enjoyed for months or years to come
-                                    (although we’re pretty sure it won’t last that long once you’ve tasted this
-                                    delicious varietal). Made from bees drawing nectar from the blossoms of native
-                                    orange and eucalyptus plants
-                                </p>
-
-                                <h5 class="card-title default_yellow">$39.99</h5>
-                            </div>
-                            <div class="card-footer">
-                                <a href="/" class="link_button main_product_card_button default_yellow_bg">view
-                                    product</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-lg-4 col-sm-12">
-                        <div class="card">
-                            <div class="card-img">
-                                <img align="center" src="{% static 'img/6.jpg' %}" class="img-fluid">
-                            </div>
-
-                            <div class="card-body">
-                                <h4 class="card-title default_brown ">Raw orange and eucalyptus honey 6 oz</h4>
-                                <p class="card-text">
-                                    This naturally sweet treat from the bees can be enjoyed for months or years to come
-                                    (although we’re pretty sure it won’t last that long once you’ve tasted this
-                                    delicious varietal).
-                                </p>
-
-                                <h5 class="card-title default_yellow">$39.99</h5>
-                            </div>
-                            <div class="card-footer">
-                                <a href="/" class="link_button main_product_card_button default_yellow_bg">view
-                                    product</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-lg-4 col-sm-12">
-                        <div class="card">
-                            <div class="card-img">
-                                <img align="center" src="{% static 'img/2.jpg' %}" class="img-fluid">
-                            </div>
-
-                            <div class="card-body">
-                                <h4 class="card-title default_brown ">Raw orange and eucalyptus honey with nuts 9
-                                    oz</h4>
-                                <p class="card-text">
-                                    A delicious crafted variety of crunchy nuts, infused in 100% natural honey for a
-                                    delightful snack. Delectable nuts are perfectly paired to add a crunch and nutty
-                                    profile to pure honey. Sustainable farming practices for a thriving and healthy bee
-                                    community
-                                </p>
-
-                                <h5 class="card-title default_yellow">$39.99</h5>
-                            </div>
-                            <div class="card-footer">
-                                <a href="/" class="link_button main_product_card_button default_yellow_bg">view
-                                    product</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-lg-4 col-sm-12">
-                        <div class="card">
-                            <div class="card-img">
-                                <img align="center" src="{% static 'img/3.jpg' %}" class="img-fluid">
-                            </div>
-
-                            <div class="card-body">
-                                <h4 class="card-title default_brown ">100% pure raw honeycomb 1 lb</h4>
-                                <p class="card-text">
-                                    Our deliciously crafted, raw 100% natural honeycomb is a delightful delicacy with
-                                    all the natural benefits of pure honey with delectable comb.
-                                    Fresh from the hive! HEALTH TO BEE honeycomb is pure, raw, and unrefined; it’s as
-                                    close to the beehive as possible.
-
-                                </p>
-
-                                <h5 class="card-title default_yellow">$39.99</h5>
-                            </div>
-                            <div class="card-footer">
-                                <a href="/" class="link_button main_product_card_button default_yellow_bg">view
-                                    product</a>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
 
 
                     <!--                    конец карточек-->
+
+
                 </div>
             </div>
         </div>
@@ -188,3 +85,6 @@
 </div>
 
 {% endblock %}
+
+
+

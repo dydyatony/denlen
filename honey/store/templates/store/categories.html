@@ -1,0 +1,8 @@
+<div class="submenu">
+
+    {% for item in categories %}
+        <a href="{{item.get_absolute_url}}">{{item.title}}</a>
+    {% endfor %}
+
+
+</div>

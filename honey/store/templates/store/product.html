@@ -2,7 +2,12 @@
 
 {% load static %}
 
+{% load prices %}
+
+
 {% block content %}
+
+<title>{% block title %} {{product.title}} :: {{block.super}}{% endblock %}</title>
 
 <section id="section_individualProduct">
     <div class="wrapper">
@@ -12,7 +17,12 @@
             <div class="row individualProduct">
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div id="individualProduct_left">
-                        <img align="center" src="{% static 'img/4.jpg' %}" class="img-fluid">
+
+                        {% if product.photo %}
+                        <img align="center" src="{{ product.photo.url }}" class="img-fluid">
+                        {% else %}
+
+                        {% endif %}
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
@@ -22,33 +32,15 @@
                             <div class="card">
 
                                 <div class="card-body">
-                                    <h4 class="card-title default_brown ">Raw orange and eucalyptus honey with almonds 6
-                                        oz</h4>
+                                    <h4 class="card-title default_brown ">{{product.title}}</h4>
 
 
-
-                                        <h5 class="card-title default_yellow price">$39.99
-
-
-                                        </h5>
-
-
-
-
+                                    {% show_prices product.real_price product.high_price %}
 
 
                                     <p class="card-text">
-                                        Our deliciously crafted, raw 100% natural honeycomb is a delightful delicacy
-                                        with all the natural benefits of pure honey with delectable comb.
-                                        Fresh from the hive! HEALTH TO BEE honeycomb is pure, raw, and unrefined; it’s
-                                        as close to the beehive as possible.
-                                        Sustainable farming practices for a thriving and healthy bee community.
-                                        A spoonful can keep you energized! Spread on toast, add to tea, drizzle on a
-                                        salad, or enjoy straight from the comb.
-                                        The wax is completely edible and provides health benefits. It will melt on toast
-                                        and taste delicious on a cracker with cheese.
-                                        Honeycomb makes for the perfect gift since so few people have tried this
-                                        delicious delicacy.
+
+                                        {{product.description|safe}}
 
                                     </p>
                                     <p>
